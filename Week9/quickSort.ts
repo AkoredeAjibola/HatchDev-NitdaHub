@@ -1,6 +1,6 @@
 function partition(array,p,r){
     let i = p-1
-    let x = array[r] //partvot
+    let x = array[r] //pivot
 
 for ( let j = p; j <= r -1; j++){
     if (array[j] <= x ){
@@ -9,18 +9,18 @@ for ( let j = p; j <= r -1; j++){
     }
 }
  
-[array[i + 1], array[r]] = [array[r], array[i + 1]]; // Swap partvot to its correct position
+[array[i + 1], array[r]] = [array[r], array[i + 1]]; // Swap pivot to its correct position
 return i + 1; // Return the partition index
 }
 
 function quickSort(array, p, r) {
     if (p < r ) {
-        // part is the partitioning index, arr[part] is now at the right place
-        let part = partition(array, p, r);
+        // pi is the partitioning index, arr[pi] is now at the right place
+        let pi = partition(array, p, r);
   
         // Separately sort elements before partition and after partition
-        quickSort(array, p, part - 1);
-        quickSort(array, part + 1, r);
+        quickSort(array, p, pi - 1);
+        quickSort(array, pi + 1, r);
     }
 }
 
